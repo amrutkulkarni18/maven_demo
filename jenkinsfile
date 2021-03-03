@@ -18,14 +18,10 @@ steps {
     junit healthScaleFactor: 10.0, testResults: '**/gameoflife-web/target/surefire-reports/*.xml'
     }
 }
-stage('package'){
-steps{
-  sh 'mvn package'
-  }
-   // stage('deploy') {
-//steps {
-  //  bat 'copy "C:\\Program Files (x86)\\Jenkins\\workspace\\raghuproject\\gameoflife-web\\target\\*.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps\\"'
-    //}
+  stage('deploy') {
+steps {
+    sh 'cp /var/lib/jenkins/workspace/My Pipeline 1/gameoflife-web/target/gameoflife.war /home/ubuntu/apache-tomcat-8.5.63/webapps' 
+    }
 }
 }
 }
